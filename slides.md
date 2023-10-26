@@ -169,7 +169,7 @@ layout: default
 ---
 # Dash Core Components
 
-- The Dash Core Components module `dash.dcc` gives you access to many interactive components, including dropdowns, checklists, and sliders.
+- The [Dash Core Components](https://dash.plotly.com/dash-core-components) module `dash.dcc` gives you access to many interactive components, including dropdowns, checklists, and sliders.
 - Except the core components, we also have [**Dash HTML Components**](https://dash.plotly.com/dash-html-components), or [**Dash Bootstrap Components**](https://dash-bootstrap-components.opensource.faculty.ai/)
 - See more components in the [Open Source Component Libraries](https://dash.plotly.com/)
 
@@ -249,6 +249,7 @@ layout: default
 
 - The layout is a <span class="highlight">hierarchical tree of components</span>.
 - Build DOM Tree with layout (Please refer to `layout-1.py` and `layout-2.py` )
+- dash-bootstrap-components [layout](https://dash-bootstrap-components.opensource.faculty.ai/docs/components/layout/)
 
 ```python
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
@@ -285,6 +286,8 @@ layout: default
 # Dash Callbacks
 
 - Callbacks are functions that are automatically called by Dash whenever an input component's property changes, in order to update some property in the output component.
+- callback decorator and callback function
+- `Input/Output (<component id>, <component property>) `
 
 ```python
 mytext = dcc.Markdown(children='')
@@ -311,20 +314,20 @@ def update_title(user_input):  # function arguments come from the component prop
 
 ---
 layout: center
-class: text-center
 ---
 
 # Task 1
-1. Take the interactive-app.py file. Add a [radioItems Dash Core Component](https://dash.plotly.com/dash-core-components/radioitems) to the layout after assigning the following colors to its `options` property: `['blue','red','green']`. Incorporate the RadioItems component into the callback so the button/color chosen updates the color of the markdown text. Hint - the callback will have a total of 2 Outputs and 2 Inputs. To color the Markdown text in purple, its `style` property is written like this: `dcc.Markdown(style={'color':'purple'})`
+1. 在 interactive-app.py 文件中，添加一个 [radioItems Dash Core Component](https://dash.plotly.com/dash-core-components/radioitems) 至 layout 中，并添加三个 `options` 属性： `['blue','red','green']`。将 radioItems 组件添加进 callback 函数中，使它的结果更新 Markdown 文本的颜色。
+- hint: To change the color of the Markdown text, set the `style` property like this: `dcc.Markdown(style={'color':'purple'})`
 
 ---
 layout: center
-class: text-center
 ---
 
 # Task 2
-2. Take the app-with-graph.py file. Add an empty `Alert` [Dash Mantine Component](https://dash-mantine-components.herokuapp.com/components/alert) to the layout between the markdown and the graph. Insert the Alert component as the second Output in the callback, with `children` as the component property. Modify the callback function so it returns this string, `"The data for the bar graph is highly confidential."` if user chooses a bar plot, and it returns this string, `"The scatter plot is believed to have been first published in 1833"` if user chooses a scatter plot.
-
+2. 在 app-with-graph.py 文件中，在 Markdown 文本和 Graph 之间添加一个空的  `Alert` [Dash Mantine Component](https://dash-mantine-components.herokuapp.com/components/alert)，将 `Alert` 的 `children` 属性作为第二个 `Output` 写入 callback 函数。返回值为字符串：
+    - bar plot: "The data for the bar graph is highly confidential."
+    - scatter plot: "The scatter plot is believed to have been first published in 1833"
 ---
 layout: default
 ---
@@ -349,7 +352,6 @@ class: text-center
 
 # Plotly Exercise
 10 mins
-
 
 ---
 layout: default
@@ -417,8 +419,6 @@ heroku create my-dash-app
 git add .
 git commit -m 'Initial app boilerplate'
 git push heroku master
-
-heroku ps:scale web=1
 ```
 
 You can also deploy with [Dash Tools](https://dash-tools.readthedocs.io/en/latest/)

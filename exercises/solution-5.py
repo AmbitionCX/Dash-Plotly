@@ -1,6 +1,3 @@
-# If you prefer to run the code online instead of on your computer click:
-# https://github.com/Coding-with-Adam/Dash-by-Plotly#execute-code-in-browser
-
 from dash import Dash, dcc, Output, Input  # pip install dash
 import dash_bootstrap_components as dbc    # pip install dash-bootstrap-components
 import plotly.express as px
@@ -8,7 +5,7 @@ import pandas as pd                        # pip install pandas
 
 # incorporate data into app
 # Source - https://www.cdc.gov/nchs/pressroom/stats_of_the_states.htm
-df = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Good_to_Know/Dash2.0/social_capital.csv")
+df = pd.read_csv("./data/social_capital.csv")
 print(df.head())
 
 # Build your components
