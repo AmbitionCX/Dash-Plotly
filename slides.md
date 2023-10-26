@@ -37,6 +37,17 @@ chenxuan@fudan.edu.cn
 </div>
 
 ---
+layout: center
+---
+
+# Table of contents
+
+1. Dash
+2. Plotly
+3. Build a Dash Application
+4. Deploy the Dash Application to Heroku
+
+---
 layout: default
 ---
 
@@ -303,7 +314,7 @@ layout: center
 class: text-center
 ---
 
-# Assignment 1
+# Task 1
 1. Take the interactive-app.py file. Add a [radioItems Dash Core Component](https://dash.plotly.com/dash-core-components/radioitems) to the layout after assigning the following colors to its `options` property: `['blue','red','green']`. Incorporate the RadioItems component into the callback so the button/color chosen updates the color of the markdown text. Hint - the callback will have a total of 2 Outputs and 2 Inputs. To color the Markdown text in purple, its `style` property is written like this: `dcc.Markdown(style={'color':'purple'})`
 
 ---
@@ -311,7 +322,7 @@ layout: center
 class: text-center
 ---
 
-# Assignment 2
+# Task 2
 2. Take the app-with-graph.py file. Add an empty `Alert` [Dash Mantine Component](https://dash-mantine-components.herokuapp.com/components/alert) to the layout between the markdown and the graph. Insert the Alert component as the second Output in the callback, with `children` as the component property. Modify the callback function so it returns this string, `"The data for the bar graph is highly confidential."` if user chooses a bar plot, and it returns this string, `"The scatter plot is believed to have been first published in 1833"` if user chooses a scatter plot.
 
 ---
@@ -366,7 +377,7 @@ layout: center
 class: text-center
 ---
 
-# Assignment 3, 4, 5
+# Task 3, 4, 5
 30 mins
 
 ---
@@ -395,15 +406,25 @@ layout: default
 - [Documentation](https://dash.plotly.com/deployment)
 
 1. Prepare a Heroku account, `git` and python `virtualenv`
-2. Install packages for virtual env.
-3. Create your `app.py`, `.gitignore` file, `requirements.txt`, and `Procfile` for deployment
-4. Deploy with `heroku` CLI
+2. Install [heroku CLI](https://devcenter.heroku.com/categories/command-line) `brew tap heroku/brew && brew install heroku`
+3. Install packages for virtual env.
+4. Create your `app.py`, `.gitignore` file, `requirements.txt`, and `Procfile` for deployment
+5. Deploy with `heroku` CLI
+
+```shell
+heroku login -i
+heroku create my-dash-app
+git add .
+git commit -m 'Initial app boilerplate'
+git push heroku master
+
+heroku ps:scale web=1
+```
 
 You can also deploy with [Dash Tools](https://dash-tools.readthedocs.io/en/latest/)
 
 ---
-layout: center
-class: text-center
+layout: end
 ---
 
 # Thank you for listening
